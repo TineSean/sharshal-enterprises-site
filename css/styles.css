@@ -1,0 +1,313 @@
+/* =========================================================
+   Sharshal Enterprises — Stylesheet
+   Mobile-first: base rules target small screens.
+   Media queries scale UP for tablet (600px) and desktop (900px).
+   ========================================================= */
+
+/* ---------- Design tokens ---------- */
+:root {
+  --green-dark: #0C6618;
+  --green-bright: #22D836;
+  --text-dark: #1A1A1A;
+  --text-muted: #4A4A4A;
+  --bg-white: #FFFFFF;
+  --bg-soft: #F4F7F4;   /* soft off-white for alternating sections */
+  --border-soft: #E1E8E1;
+
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --max-width: 1100px;
+  --radius: 4px;
+}
+
+/* ---------- Reset & base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--bg-white);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--green-dark);
+}
+
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.5rem; margin-bottom: 1.25rem; }
+h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-dark); }
+
+p { color: var(--text-muted); margin-bottom: 0.75rem; }
+
+a { color: var(--green-dark); text-decoration: none; }
+a:hover { color: var(--green-bright); }
+
+ul { list-style: none; }
+
+img { max-width: 100%; display: block; }
+
+section {
+  padding: 3rem 1.25rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ---------- Header & nav ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+  position: sticky;
+  top: 0;
+  background: var(--bg-white);
+  z-index: 100;
+}
+
+.logo-block img { height: 44px; width: auto; }
+
+/* Hamburger button — mobile only */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--green-dark);
+  border-radius: 2px;
+}
+
+/* Nav menu — hidden off-canvas on mobile until toggled open (Phase 4 adds the JS) */
+.primary-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background: var(--bg-white);
+  box-shadow: -2px 0 12px rgba(0,0,0,0.08);
+  transition: right 0.3s ease;
+  padding: 5rem 1.5rem;
+}
+
+.primary-nav.open { right: 0; }
+
+.primary-nav ul { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.primary-nav a {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.hero h1 { margin-bottom: 0.75rem; }
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.75rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--green-dark);
+  color: var(--bg-white);
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  width: 100%;
+}
+
+.cta-button:hover { background: var(--green-bright); color: var(--text-dark); }
+
+/* ---------- About ---------- */
+.about { background: var(--bg-soft); }
+
+.vision-mission {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.vision, .mission {
+  background: var(--bg-white);
+  border-left: 4px solid var(--green-bright);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+}
+
+.values ul li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--text-muted);
+}
+
+.values ul li strong { color: var(--text-dark); }
+
+/* ---------- Services ---------- */
+.services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.services h2 { grid-column: 1 / -1; }
+
+.service-card {
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--green-dark);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+}
+
+.service-card ul { margin-top: 0.75rem; }
+
+.service-card ul li {
+  padding: 0.25rem 0;
+  padding-left: 1rem;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.service-card ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--green-bright);
+}
+
+/* ---------- Why choose us ---------- */
+.why-us {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  background: var(--bg-soft);
+}
+
+.why-us h2 { grid-column: 1 / -1; }
+
+.feature-card {
+  padding: 1.5rem;
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--green-bright);
+}
+
+/* ---------- Contact ---------- */
+.contact-details p { margin-bottom: 0.5rem; }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 2rem;
+  max-width: 500px;
+}
+
+.contact-form label { font-weight: 600; font-size: 0.9rem; }
+
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--green-bright);
+  outline-offset: 1px;
+}
+
+.contact-form button {
+  background: var(--green-dark);
+  color: var(--bg-white);
+  border: none;
+  padding: 0.9rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.contact-form button:hover { background: var(--green-bright); color: var(--text-dark); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--green-dark);
+  color: var(--bg-white);
+  text-align: center;
+  padding: 2rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.site-footer p:first-child { margin-bottom: 0.5rem; font-weight: 600; }
+
+/* =========================================================
+   TABLET — 600px and up
+   ========================================================= */
+@media (min-width: 600px) {
+  .cta-button { width: auto; }
+
+  .vision-mission { grid-template-columns: 1fr 1fr; }
+
+  .services { grid-template-columns: 1fr 1fr; }
+
+  .why-us { grid-template-columns: 1fr 1fr; }
+}
+
+/* =========================================================
+   DESKTOP — 900px and up
+   ========================================================= */
+@media (min-width: 900px) {
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2rem; }
+
+  .nav-toggle { display: none; }
+
+  .primary-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .primary-nav ul { flex-direction: row; gap: 2rem; }
+
+  .hero { padding-top: 5rem; padding-bottom: 5rem; }
+
+  .why-us { grid-template-columns: repeat(4, 1fr); }
+}
