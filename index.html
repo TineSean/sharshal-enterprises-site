@@ -32,9 +32,12 @@
     </nav>
   </header>
 
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
   <main>
 
     <section class="hero">
+      <p class="hero-brand">Sharshal Enterprises</p>
       <h1>Your Trusted Partner in Business Growth &amp; Compliance</h1>
       <p class="hero-subtitle">Guiding Your Business Every Step of the Way</p>
       <a href="#contact" class="cta-button">Get in Touch</a>
@@ -169,15 +172,27 @@
         <p>Harare Main Post Office, 2nd Floor, Office 24</p>
       </div>
 
-      <form class="contact-form" action="mailto:sharshalenterprises17@gmail.com" method="post" enctype="text/plain">
+      <form class="contact-form" id="contactForm" novalidate>
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name">
+        <span class="error-message" id="nameError"></span>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email">
+        <span class="error-message" id="emailError"></span>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. +263 77 123 4567">
+        <span class="error-message" id="phoneError"></span>
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <div class="quick-messages">
+          <button type="button" class="quick-message-btn" data-message="I'm interested in your services.">I'm interested in your services</button>
+          <button type="button" class="quick-message-btn" data-message="I'd like to request a quote.">Request a quote</button>
+          <button type="button" class="quick-message-btn" data-message="I have a general enquiry.">General enquiry</button>
+        </div>
+        <textarea id="message" name="message" rows="5"></textarea>
+        <span class="error-message" id="messageError"></span>
 
         <button type="submit">Send Message</button>
       </form>
