@@ -62,10 +62,6 @@ section {
 
 /* ---------- Header & nav ---------- */
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--border-soft);
   position: sticky;
   top: 0;
@@ -73,7 +69,16 @@ section {
   z-index: 100;
 }
 
-.logo-block img { height: 64px; width: auto; }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+}
+
+.logo-block img { height: 76px; width: auto; }
 
 /* Hamburger button — mobile only */
 .nav-toggle {
@@ -389,19 +394,21 @@ section {
   h1 { font-size: 2.6rem; }
   h2 { font-size: 2rem; }
 
-  .logo-block img { height: 76px; }
+  .logo-block img { height: 100px; }
 
   .nav-toggle { display: none; }
 
   .primary-nav {
     position: static;
     width: auto;
+    max-width: none;
     height: auto;
     box-shadow: none;
     padding: 0;
   }
 
-  .primary-nav ul { flex-direction: row; gap: 2rem; }
+  .primary-nav ul { flex-direction: row; gap: 1.75rem; }
+  .primary-nav a { white-space: nowrap; }
 
   .hero { padding-top: 5rem; padding-bottom: 5rem; }
 
